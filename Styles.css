@@ -4,23 +4,28 @@
    /* background:inear-gradient(to right, rgb(87, 87, 156), darkslategrey);*/
    
 }
+/*for header body*/
 .header{
  background-image: linear-gradient(to right, darkcyan, cyan);
  text-align: center;
  width: 100%;
  height: 100px;
  padding-left: 20px;
- padding-top: 15px;
- font-family: -webkit-pictograph;
- font-size: 20px;
- font-style: unset ;
+ padding-top: 10px;
+ font-family: 'RocknRoll One', sans-serif;
+ color: white;
  font-weight: bold;
+ font-size: 20px;
 }
+
+
+/*for centre body*/
 .centre{
     background-color: darkslategrey;
     width: 100%;
     height: 500px;
 }
+/*for box body*/
 .box{
     width: 300px;
     padding: 40px;
@@ -33,8 +38,9 @@
     border-radius: 5px;
 }
 .box h2{
-    font-family:-webkit-pictograph;
+    font-family: 'RocknRoll One', sans-serif;
 }
+/*for box form*/
 .box input[type="text"], .box input[type="password"]{
     border: 0;
     background: none;
@@ -79,14 +85,7 @@
     color:black;
     cursor: pointer;
 }
-.footer{
-    width: 100%;
-    height: 150px;
-    bottom: 0px;
-    text-align: center;
-    padding-top: 5px;
-    background-image:  linear-gradient(to right, darkcyan, cyan);
-}
+/*for info button "What is WebNote"*/
 .info{
     width: 200px;
     padding: 8px;
@@ -99,12 +98,59 @@
     background-image: linear-gradient(to right, darkcyan, cyan);
     border: 1px solid black;
     transition: 0.5s;
-    
+
 }
 .info:hover{
     width: 250px ;
-    background:cyan;
+    background :cyan;
+    cursor: pointer;
 }
+/*Info inside box visible on clicking "What is WebNote"*/
+.About{
+    width: 300px;
+    height: 230px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background:blue;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    border-radius: 5px;
+    display:none;/*Not displayed initially */
+    
+}
+.About_btn{
+    border: 0;
+    background-image:  linear-gradient(to right, darkcyan, cyan);
+    display: block;
+    margin: 30px auto;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 300px;
+    outline: none;
+    transition: 0.5s;
+    color: rgb(250, 250, 250);
+}
+.About_btn:hover{
+    width: 250px;
+    /*background-image: linear-gradient(to right, cyan, darkcyan)*/
+    background: cyan;
+    color: rgb(26, 22, 22);
+    cursor: pointer;
+}
+/*for footer*/
+.footer{
+    width: 100%;
+    height: 150px;
+    bottom: 0px;
+    text-align: center;
+    padding-top: 5px;
+    background-image:  linear-gradient(to right, darkcyan, cyan);
+}
+/*for overlapping logo*/
 .logo
 {
     width: 100px;
