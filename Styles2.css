@@ -1,0 +1,123 @@
+*{
+    margin: 0px;
+    padding: 0px;
+   
+}
+.header{
+ background-image: linear-gradient(to right, darkcyan, cyan);
+ width: 100%;
+ height: 125px;
+ padding-left: 20px;
+ padding-top: 15px;
+ 
+ font-size: 40px;
+ font-style: unset ;
+ font-weight: bold;
+}
+.Logo{
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+        top: 8%;
+        right: 3%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        border-radius: 5px;
+        border: none;      
+}
+.Logo:hover{
+    border: 1px solid black;
+}
+.header h2{
+    font-size: 40px;
+    color: white;
+    font-family: 'RocknRoll One', sans-serif;
+
+}
+.navbar{
+    height: 45px;
+    background: darkslategray;
+
+}
+ul{
+    width: auto;
+    float: right;
+
+}
+li{
+    display: inline-block;
+    color: white;
+    margin: auto 5px;
+}
+.navbar input[type="text"]{
+    border-radius: 5px;
+    margin-right: 0px;
+    position: absolute;
+    right: 65px;
+    top: 7px;
+    border: none;
+    padding: 3px;
+}
+.navbar input[type="submit"]{
+    position: absolute;
+    background: transparent;
+    color: white;
+padding: 3px;
+    border: 1px solid white;
+   top: 7px;
+    right: 2px;
+    margin-right: 5px;
+}
+h4{
+    font-family: 'RocknRoll One', sans-serif;
+
+}
+.container{
+    margin-top: 5px;
+    /*background-image:linear-gradient(to bottom, rgb(7, 223, 223), darkslategrey);*/
+    width: 100%;
+    border: 1px solid black;}
+    
+.card {
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin: 5px;
+    
+}
+.container-fluid{
+    padding: 5px;
+}
+.card-title{
+    color:black;
+    font-weight: bold;
+    
+}
+#Addbtn{
+    margin: 7px;
+}
+#Editbtn{
+    width: 47%;
+    float: left;
+
+}
+#Deletebtn{
+    float: right;
+    width: 47%;
+
+}
+.footer{
+    color: black;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    bottom: 0%;
+    margin-top: 10px;
+    background-image:  linear-gradient(to right, darkcyan, cyan);
+}
+.card{
+    background: lightblue;
+}
+#exampleFormControlInput1{
+    border: 1px solid black;
+}
