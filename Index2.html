@@ -15,72 +15,91 @@
 </head>
 
 <body>
-    <div class="header">
+    <div class="header" id="head">
+       
         <h2>WebNote</h2>
+        <p id="greeting">welcome!!</p>
         <img src="Logo_WebNote.png" class="Logo" alt="">
+       
     </div>
     <div class="navbar">
         <ul>
-            
-            <li id="clock"></li>
-            <li>Contact</li>
-            <li>Calander</li>
-            <input type="text" placeholder="Search a word">
-            <input type="submit" value="Search">
+
+           <li id="clock"></li>
+           <!-- <input type="text" id="search" placeholder="Search a word">
+            <input type="submit" value="Search">-->
+            </form>
+            <span style="color: white;">What's your mood</span>
+            <select name="Change background" id="theme" onchange="changingthemes()">
+                <option value="1">Mountain</option>
+                <option value="2">Evening</option>
+                <option value="3">Skycraper</option>
+                <option value="4">Stars</option>
+                <option value="5">Sea</option>
+            </select>
+            <form onsubmit="return logout()" action="Index.html">
+                <button id="logoutbtn" type="submit">Logout</button>
         </ul>
     </div>
-    <div class="container" my-3>
+    <div class="container" id="cont" my-3>
 
         <h3>ADD A NOTE</h3>
-
-
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Add title">
+            <input type="text" class="form-control" id="notetitle" placeholder="Add title">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Text Area</label>
-            <textarea class="form-control" id="Textarea1" rows="3" placeholder="Add your note here"></textarea>
-            <button type="button" onclick="show()" id="Addbtn" class="btn btn-primary">Add</button>
+            <textarea class="form-control" id="notetext" rows="3" placeholder="Add your note here"></textarea>
+            <button type="button" onclick="addingnote()" id="Addbtn" class="btn btn-primary">Add</button>
+            <button type="button" onclick="replacingnote()" id="replacebtn" class="btn btn-primary">Replace</button>
         </div>
     </div>
-    <div class="row container-fluid mx-3">
-        <h4>Your notes</h4>
+    <h4>YOUR NOTES</h4>
+    <hr>
+    <div id="display" class="row container-fluid mx-3">
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> title</h5>
+                <h6></h6>
+                <hr>
+                <p class="card-text">
+                </p>
+                <button onclick="editnote()" class="btn btn-primary" id="Editbtn">Edit<button>
+                        <button onclick="deletenote()" class="btn btn-primary" id="Deletebtn">Delete<button>
+            </div>
+        </div>
+    </div>
+   
+    <div class="footer">
+        <p>Project under Cyberlabs</p>
         
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">title 1</h5>
-                <hr>
-                <p class="card-text">
-                    Text note 1 
-                will be added here</p>
-                <button class="btn btn-primary" id="Editbtn">Edit<button>
-                <button class="btn btn-primary" id="Deletebtn">Delete<button>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">title 2</h5>
-                <hr>
-                <p class="card-text">
-                    Text note 2
-                will be added here
-            </p>
-                <button class="btn btn-primary" id="Editbtn">Edit<button>
-                <button class="btn btn-primary" id="Deletebtn">Delete<button>
-            </div>
-        </div>
     </div>
-<div class="footer">
-    <p>Project under Cyberlabs</p>
-</div>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 
-
-
-
-
-
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyB-Dltg61KW_Cp3-RO4usEul9HR3BlXSMc",
+            authDomain: "webnote-19e78.firebaseapp.com",
+            projectId: "webnote-19e78",
+            storageBucket: "webnote-19e78.appspot.com",
+            messagingSenderId: "710721063012",
+            appId: "1:710721063012:web:91f9277865e96c36c3b771",
+            measurementId: "G-WD9L6SH83T"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>

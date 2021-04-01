@@ -1,34 +1,285 @@
-function show(){
-    var title= document.getElementById("exampleFormControlInput1").value;
-    var text= document.getElementById("Textarea1").value;
-    if(title=="")
-    {
+//logout
+var email;
+function logout() {
+    firebase.auth().signOut().then(() => {
+        console.log("logout sucessful");
+        return true
+    }).catch((error) => {
+        console.log("An error happened");
+        return false;
+    });
+}
+// getting current user
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        console.log(user);
+        email = user.email;
+        var name = user.displayNmae;
+        if (name != null)
+            document.getElementById("greeting").innerHTML = `welcome  ${name}`;
+        else
+            document.getElementById("greeting").innerHTML = `welcome  ${email}!!`;
+        shownote();
+    } else {
+        console.log("no user");
+    }
+});
+//displaying clock
+var finaltime, finaldate;
+var timearr, datearr;
+var flag;
+setInterval(displayclock, 700);
+function displayclock() {
+    var time = new Date();
+    var hrs = time.getHours();
+    var min = time.getMinutes();
+    var sec = time.getSeconds();
+    var month = time.getMonth();
+    var year = time.getFullYear();
+    var date = time.getDate();
+    if (hrs < 10) {
+        hrs = "0" + hrs;
+    }
+    if (min < 10) {
+        min = "0" + min;
+    }
+    if (sec < 10) {
+        sec = "0" + sec;
+    }
+    finaldate = date + "/" + (month + 1) + "/" + year;
+    finaltime = hrs + ":" + min + ":" + sec;
+    document.getElementById("clock").innerHTML = finaltime + " " + finaldate;
+}
+
+// add note button
+function addingnote() {
+    var heading = document.getElementById("notetitle");
+    var text = document.getElementById("notetext");
+    if (heading.value == "") {
         alert("Nothing filled in title");
     }
-    else if(text=="")
-    {
+    else if (text.value == "") {
         alert("Nothing filled in text area");
     }
+    else {
+        let notes = localStorage.getItem("notes");
+        let title = localStorage.getItem("title");
+        let time = localStorage.getItem("time");
+        let date = localStorage.getItem("date");
+        let user = localStorage.getItem("user");
+        if (notes == null) {
+            notesarr = [];
+        }
+        else {
+            notesarr = JSON.parse(notes);
+        }
+        notesarr.push(text.value);
+        localStorage.setItem("notes", JSON.stringify(notesarr));
+        text.value = "";
+        console.log(notesarr);
+
+        if (title == null) {
+            titlearr = [];
+        }
+        else {
+            titlearr = JSON.parse(title);
+        }
+        titlearr.push(heading.value);
+        localStorage.setItem("title", JSON.stringify(titlearr));
+        heading.value = "";
+        console.log(titlearr);
+
+        if (time == null) {
+            timearr = [];
+        }
+        else {
+            timearr = JSON.parse(time);
+        }
+        if (date == null) {
+            datearr = [];
+        }
+        else {
+            datearr = JSON.parse(date);
+        }
+        timearr.push(finaltime);
+        datearr.push(finaldate);
+        localStorage.setItem("time", JSON.stringify(timearr));
+        localStorage.setItem("date", JSON.stringify(datearr));
+        console.log(timearr);
+        console.log(datearr);
+        if (user == null) {
+            userarr = [];
+        }
+        else {
+            userarr = JSON.parse(user);
+        }
+        userarr.push(email);
+        localStorage.setItem("user", JSON.stringify(userarr));
+        console.log(userarr);
+        shownote();
+    }
+}
+//showing notes
+function shownote() {
+    let notes = localStorage.getItem("notes");
+    let title = localStorage.getItem("title");
+    let time = localStorage.getItem("time");
+    let date = localStorage.getItem("date");
+    let user = localStorage.getItem("user");
+    if (notes == null) {
+        notesarr = [];
+    }
+    else {
+        notesarr = JSON.parse(notes);
+    }
+    if (title == null) {
+        titlearr = [];
+    }
+    else {
+        titlearr = JSON.parse(title);
+    }
+    if (time == null) {
+        timearr = [];
+    }
+    else {
+        timearr = JSON.parse(time);
+    }
+    if (date == null) {
+        datearr = [];
+    }
+    else {
+        datearr = JSON.parse(date);
+    }
+    if (user == null) {
+        userarr = [];
+    }
+    else {
+        userarr = JSON.parse(user);
+    }
+
+    let str1 = "";
+    notesarr.forEach(function (element, index) {
+        if (userarr[index] == email) {
+            str1 += ` <div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title"> ${titlearr[index]}</h5><h6>${datearr[index] + "  " + timearr[index]}</h6><hr><p class="card-text"> ${element}</p><button onclick="editnote(${index})" class="btn btn-primary" id="Editbtn">Edit<button><button onclick="deletenote(${index})" class="btn btn-primary" id="Deletebtn">Delete<button></div></div> `;
+        }
+
+    });
+    let notesele = document.getElementById("display");
+    if (notesarr.length != 0 && str1.length != 0) {
+        notesele.innerHTML = str1;
+    }
+    else {
+        notesele.innerHTML = "No notes added. go ahead add some notes!"
+    }
+}
+//deleting note
+function deletenote(index) {
+    console.log("I am deleting note", index);
+    let notes = localStorage.getItem("notes");
+    let title = localStorage.getItem("title");
+    let time = localStorage.getItem("time");
+    let date = localStorage.getItem("date");
+    let user =localStorage.getItem("user");
+    if (notes == null) {
+        notesarr = [];
+    }
+    else {
+        notesarr = JSON.parse(notes);
+    }
+    if (title == null) {
+        titlearr = [];
+    }
+    else {
+        titlearr = JSON.parse(title);
+    }
+    if (time == null) {
+        timearr = [];
+    }
+    else {
+        timearr = JSON.parse(time);
+    }
+    if (date == null) {
+        datearr = [];
+    }
+    else {
+        datearr = JSON.parse(date);
+    }
+    if(user== null)
+    {
+        userarr=[];
+    }
+    else{
+        userarr =JSON.parse(user);
+    }
+    notesarr.splice(index, 1);
+    titlearr.splice(index, 1);
+    timearr.splice(index, 1);
+    datearr.splice(index, 1);
+    userarr.splice(index,1);
+    localStorage.setItem("notes", JSON.stringify(notesarr));
+    localStorage.setItem("title", JSON.stringify(titlearr)); localStorage.setItem("time", JSON.stringify(timearr));
+    localStorage.setItem("date", JSON.stringify(datearr));
+    localStorage.setItem("user", JSON.stringify(userarr));
+    shownote();
+}
+
+//editing the note
+function editnote(index) {
+    var repbtn = document.getElementById("replacebtn");
+    repbtn.style.visibility = "visible";
+    var addbtn = document.getElementById("Addbtn");
+    addbtn.style.visibility = "hidden";
+    console.log("i am editing note ", index);
+    let notes = localStorage.getItem("notes");
+    let title = localStorage.getItem("title");
+    let time = localStorage.getItem("time");
+    notesarr = JSON.parse(notes);
+    titlearr = JSON.parse(title);
+    timearr = JSON.parse(time);
+    var heading = document.getElementById("notetitle");
+    var text = document.getElementById("notetext");
+    heading.value = `${titlearr[index]}`;
+    text.value = `${notesarr[index]}`;
+    flag = index;
 
 }
-setInterval(displayclock, 700);
-function displayclock()
-{
-    var time = new Date();
-    var hrs= time.getHours();
-    var min =time.getMinutes();
-    var sec = time.getSeconds();
-     if(hrs<10)
-     {
-         hrs= "0"+hrs;
-     }
-     if(min<10)
-     {
-         min= "0"+min;
-     }
-     if(sec<10)
-     {
-         sec= "0"+sec;
-     }
-    document.getElementById("clock").innerHTML= hrs +":"+ min+":"+sec;
+function replacingnote() {
+    var repbtn = document.getElementById("replacebtn");
+    repbtn.style.visibility = "hidden";
+    var addbtn = document.getElementById("Addbtn");
+    addbtn.style.visibility = "visible";
+    addingnote();
+    deletenote(flag);
+
+}
+function changingthemes() {
+    var theme = document.getElementById("theme").value;
+    console.log(theme);
+    if (theme == 1) {
+        document.body.style.backgroundImage = "url('image5.jpg')";
+        var head =document.getElementById("head");
+        head.style.backgroundImage="linear-gradient(to right, darkcyan, cyan)";
+    }
+    if (theme == 2) {
+        document.body.style.backgroundImage = "url('image6.jpg')";
+        var head =document.getElementById("head");
+        head.style.backgroundImage="linear-gradient(to right, pink, violet)";
+
+    }
+    if (theme == 3) {
+        document.body.style.backgroundImage = "url('image8.jpg')";
+        var head =document.getElementById("head");
+        head.style.backgroundImage="linear-gradient(to right, gold, red)";
+    }
+    if (theme == 4) {
+        document.body.style.backgroundImage = "url('image1.jpg')";
+        var head =document.getElementById("head");
+        head.style.backgroundImage="linear-gradient(to right, #9966ff, #3333cc)";
+    }
+    if (theme == 5) {
+        document.body.style.backgroundImage = "url('image2.jpg')";
+        var head =document.getElementById("head");
+        head.style.backgroundImage="linear-gradient(to right, #66ccff, #0066ff)";
+    }
+
 }

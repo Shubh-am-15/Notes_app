@@ -1,43 +1,63 @@
 *{
     margin: 0px;
     padding: 0px;
-   
+}
+body{
+    background-image: url("image5.jpg");
+    transition-duration: 1s;
 }
 .header{
  background-image: linear-gradient(to right, darkcyan, cyan);
- width: 100%;
+ width: 105%;
  height: 125px;
  padding-left: 20px;
  padding-top: 15px;
- 
- font-size: 40px;
  font-style: unset ;
  font-weight: bold;
+ transition-duration: 1s;
 }
+
 .Logo{
     width: 100px;
     height: 100px;
     position: absolute; 
-        top: 8%;
-        right: 3%;
-        transform: translate(-50%,-50%);
-        text-align: center;
-        border-radius: 5px;
-        border: none;      
+    top: 9%;
+    right: 3%;
+    box-shadow: 2px 2px 7px black;
+    transition-duration: 0.5s;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    border: none;
+    animation-name: logoanimation;
+    animation-duration: 1s;    
+}
+@keyframes logoanimation{
+    0%{top: -50px};
+    100%{top: 0%};
 }
 .Logo:hover{
-    border: 1px solid black;
+    box-shadow: 2px 2px 20px black;
 }
 .header h2{
     font-size: 40px;
     color: white;
+    top: 10px;
     font-family: 'RocknRoll One', sans-serif;
-
+    animation-name: headinganimation;
+    animation-duration: 2s;
+    transition-duration: 0.5s;
+}
+.header h2:hover{
+    font-size: 45px;
+}
+@keyframes headinganimation{
+    0% {opacity: 0;}
+    100% {opacity: 1};
 }
 .navbar{
     height: 45px;
     background: darkslategray;
-
+    width: 105%;
 }
 ul{
     width: auto;
@@ -49,7 +69,44 @@ li{
     color: white;
     margin: auto 5px;
 }
-.navbar input[type="text"]{
+#theme{
+    background-color: darkslategray;
+    color: white;
+    position: absolute;
+    margin-left: 3px;
+    border: 1px solid white
+}
+
+#btncheck1{
+    padding: 0px;
+    margin: 5px;
+}
+#logoutbtn
+{
+    position: absolute;
+    background: transparent;
+    color: white;
+    padding: 3px 5px;
+    border: 1px solid white;
+    top: 10%;
+    right: 7%;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+#logoutbtn:hover{
+    color: darkslategrey;
+    border: 1px solid darkslategrey;
+    background: white;
+
+}
+.form-select {
+    position: relative;
+    top: -25px;
+    left: 90%;
+    background-color: darkslategray;
+    color: white;    
+}
+/*.navbar input[type="text"]{
     border-radius: 5px;
     margin-right: 0px;
     position: absolute;
@@ -62,27 +119,66 @@ li{
     position: absolute;
     background: transparent;
     color: white;
-padding: 3px;
+    padding: 3px;
     border: 1px solid white;
-   top: 7px;
+    top: 7px;
     right: 2px;
     margin-right: 5px;
-}
+}*/
 h4{
+    margin-top:15px ;
+    margin-left: 40%;
     font-family: 'RocknRoll One', sans-serif;
-
+    color: white;
 }
 .container{
-    margin-top: 5px;
-    /*background-image:linear-gradient(to bottom, rgb(7, 223, 223), darkslategrey);*/
-    width: 100%;
-    border: 1px solid black;}
+    margin-top: 30px;
+   background:transparent;
+   color:black;
+    width: 70%;
+    opacity: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px black, -2px -2px 10px black;
+    animation-name: containeranimation;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    transition: 1s;
+}
+@keyframes containeranimation{
+    0% {opacity: 0};
+    50% {opacity: 0.5;}
+    100% {opacity: 1};
+}
     
+#notetitle{
+        border: 1px solid black;
+    }    
+#notetext{
+    border: 1px solid black
+}  
 .card {
     border-radius: 5px;
     border: 1px solid gray;
     margin: 5px;
-    
+    color: black;
+    background-color: white;
+    animation-duration: 2s;
+    animation-name: cardanimation;
+    transition-property: background, color;
+    transition-duration: 1s, 0.5s;
+}
+@keyframes cardanimation{
+    0%{left: -300px};
+    50%{left:-100px}
+    100%{left: 0%};
+}
+.card:hover{
+    border: none;
+    background: transparent;
+    color: white;
+    box-shadow: 0px 0px 10px black;
 }
 .container-fluid{
     padding: 5px;
@@ -91,6 +187,10 @@ h4{
     color:black;
     font-weight: bold;
     
+}
+#display{
+    color: white;
+    margin-bottom: 100px;
 }
 #Addbtn{
     margin: 7px;
@@ -105,19 +205,23 @@ h4{
     width: 47%;
 
 }
+#replacebtn{
+    margin: 7px;
+    float: right;
+    visibility:hidden;
+    transition: 1s;
+}
 .footer{
     color: black;
     text-align: center;
-    width: 100%;
+    width: 105%;
     height: 100px;
     position: relative;
-    bottom: 0%;
+    bottom: -5px;
     margin-top: 10px;
-    background-image:  linear-gradient(to right, darkcyan, cyan);
+    background-color:darkslategray;
 }
-.card{
-    background: lightblue;
-}
+
 #exampleFormControlInput1{
     border: 1px solid black;
 }
