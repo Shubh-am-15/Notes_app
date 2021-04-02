@@ -7,3 +7,5 @@ I will push codes after every two days.
 6-03-21
 pushed HTML CSS LOGO and JS files to repository.
 currently learning JAVASCRIPT.
+1-04-21
+completed JAVASCRIPT and FIREBAASE part. Testing and Hosting left.
