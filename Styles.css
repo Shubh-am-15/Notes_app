@@ -22,7 +22,7 @@
 .centre{
     background-color: darkslategrey;
     width: 100%;
-    height: 500px;
+    min-height: 500px;
 }
 /*for box body*/
 .mainbox{
@@ -69,17 +69,15 @@
     text-align: center;
     border: 1px solid black;
     border-radius: 20px;
-    width: 250px;
+    width: 70%;
     outline: none;
-    transition: 1s;
+    transition: 0.5s;
 
 }
 .box input[type="text"]:focus, .box input[type="password"]:focus
 {
-    width: 300px;
-    border: 2px, solid, blueviolet;
+    width: 85%;
     border-radius: 20px;
-    
     border: 1px solid rgb(108, 181, 250);
 }
 .logbtn1, .signbtn, .backbtn
@@ -92,7 +90,7 @@
     text-align: center;
     border: 1px solid black;
     border-radius: 20px;
-    width: 300px;
+    width: 85%;
     outline: none;
     transition: 0.5s;
     color:black;
@@ -102,7 +100,7 @@
 }
 .logbtn1:hover, .signbtn:hover, .backbtn:hover
 {
-    width: 250px;
+    width: 70%;
     background: cyan;
     color:black;
     cursor: pointer;
@@ -138,17 +136,16 @@
     text-align: center;
     border: 1px solid black;
     border-radius: 20px;
-    width: 250px;
+    width: 70%;
     outline: none;
     transition: 0.5s;
 
 }
 .box2 input[type="text"]:focus, .box2 input[type="password"]:focus
 {
-    width: 300px;
+    width: 85%;
     border: 2px, solid, blueviolet;
     border-radius: 20px;
-    
     border: 1px solid rgb(108, 181, 250);
 }
 .box3{
@@ -241,6 +238,9 @@
     padding-top: 5px;
     background-image:  linear-gradient(to right, darkcyan, cyan);
 }
+.footer p{
+    font-size: 15px;
+}
 /*for overlapping logo*/
 .logo
 {
@@ -258,6 +258,28 @@
 }
 .logo:hover{
     
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow:2px 2px 7px rgba(0, 0, 0, 0.5), -2px -2px 7px rgba(0, 0, 0, 0.5);
     
+}
+.fa{
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+    margin: 5px;
+    bottom: 5px;
+    transition: 0.5s;
+}
+.fa-instagram{
+    background-color: crimson;
+    box-sizing: border-box;
+}
+.fa-github{
+    background-color: black;
+    box-sizing: border-box;
+}
+a:hover{
+    text-decoration: none;
+    color: white;
 }

@@ -28,6 +28,16 @@ firebase.auth().onAuthStateChanged(function (user) {
 var finaltime, finaldate;
 var timearr, datearr;
 var flag;
+var w = window.innerWidth;
+var h = window.innerHeight;
+if(w<500)
+{
+    console.log("small");
+ var logo=document.getElementById("logo");
+ logo.style.width="50px";
+ logo.style.height="50px";
+ logo.style.top="5%";
+}
 setInterval(displayclock, 700);
 function displayclock() {
     var time = new Date();
@@ -48,7 +58,9 @@ function displayclock() {
     }
     finaldate = date + "/" + (month + 1) + "/" + year;
     finaltime = hrs + ":" + min + ":" + sec;
+    if(w>500){
     document.getElementById("clock").innerHTML = finaltime + " " + finaldate;
+    }
 }
 
 // add note button
