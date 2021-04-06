@@ -22,7 +22,7 @@
 /*for centre body*/
 .centre{
     background-color: darkslategrey;
-    width: 100%;
+    width: 101.5%;
     min-height: 500px;
 }
 /*for box body*/
@@ -234,7 +234,7 @@
 /*for footer*/
 .footer{
     position: relative;
-    width: 100%;
+    width: 101.5%;
     height: 150px;
     bottom: 0%;
     text-align: center;
@@ -248,7 +248,7 @@
 .logodiv{
     background-color: darkslategray;
     height: 110px;
-    width: 100%;
+    width: 101.5%;
     border: none;
     margin:0px;
 }
