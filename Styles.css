@@ -16,7 +16,8 @@
  font-weight: bold;
 }
 .header h2{
-    font-size: 50px;
+    padding-top: 10px;
+    font-size: 45px;
 }
 /*for centre body*/
 .centre{
@@ -231,9 +232,10 @@
 }
 /*for footer*/
 .footer{
+    position: relative;
     width: 100%;
     height: 150px;
-    bottom: 0px;
+    bottom: 0%;
     text-align: center;
     padding-top: 5px;
     background-image:  linear-gradient(to right, darkcyan, cyan);
@@ -247,7 +249,7 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 73%;
+    bottom: 11%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;

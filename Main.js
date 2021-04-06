@@ -1,16 +1,12 @@
 var w=window.innerWidth;
 if (w<400)
 {
-    console.log("small");
     var form1=document.getElementById("form1");
     var form2=document.getElementById("form2");
     var form3=document.getElementById("details");
     var form4=document.getElementById("mainbox");
     form1,form2,form3,form4.style.width="250px";
 
-}
-function alert1() {
-    alert("It is a simple to use platform were you can add, edit and delete text notes. It has a attractive layout and there is search bar to scan and filter your notes.     ");
 }
 function showsignup() {
     var form1 = document.getElementById("form1");
@@ -31,6 +27,7 @@ function showdetails() {
     var form2 = document.getElementById("form2");
     var form3 = document.getElementById("details");
     form1.style.top = "200%";
+    form2.style.top ="200%";
     form3.style.top = "50%";
 
 }
@@ -39,6 +36,7 @@ function back() {
     var form2 = document.getElementById("form2");
     var form3 = document.getElementById("details");
     form1.style.top = "50%";
+    form2.style.top="50%";
     form3.style.top = "-50%";
 
 }

@@ -32,11 +32,12 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 if(w<500)
 {
-    console.log("small");
+ console.log("small");
  var logo=document.getElementById("logo");
  logo.style.width="50px";
  logo.style.height="50px";
  logo.style.top="5%";
+ logo.style.right="-9%";
 }
 setInterval(displayclock, 700);
 function displayclock() {
