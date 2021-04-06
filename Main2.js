@@ -38,7 +38,7 @@ if(w<500)
  logo.style.width="50px";
  logo.style.height="50px";
  logo.style.top="5%";
- logo.style.right="-9%";
+ logo.style.right="0%";
 }
 //displaying clock
 setInterval(displayclock, 700);

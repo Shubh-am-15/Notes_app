@@ -1,5 +1,6 @@
 var w=window.innerWidth;
-//sliding feature for forms
+var h=window.innerHeight;
+//responsive
 if (w<400)
 {
     var form1=document.getElementById("form1");
@@ -7,8 +8,8 @@ if (w<400)
     var form3=document.getElementById("details");
     var form4=document.getElementById("mainbox");
     form1,form2,form3,form4.style.width="250px";
-
 }
+//sliding feature for forms
 function showsignup() {
     var form1 = document.getElementById("form1");
     var form2 = document.getElementById("form2");

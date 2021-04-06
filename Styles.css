@@ -31,6 +31,7 @@
     height: 300px;
     padding: 30px;
     position: absolute;
+    margin-top: 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -41,7 +42,6 @@
 @keyframes mainboxanimation
 {
     0%{left: 0%};
-    
     100%{left: 50%};
 }
 .box{
@@ -96,6 +96,7 @@
     transition: 0.5s;
     color:black;
 }
+
 .signbtn{
     background-image: linear-gradient(to right, seagreen, lightgreen);
 }
@@ -177,7 +178,7 @@
     width: 200px;
     padding: 8px;
     position: absolute;
-    top: 23%;
+    top: 170px;
     left: 50%;
     outline: none;
     transform: translate(-50%,-50%);
@@ -244,12 +245,19 @@
     font-size: 15px;
 }
 /*for overlapping logo*/
+.logodiv{
+    background-color: darkslategray;
+    height: 110px;
+    width: 100%;
+    border: none;
+    margin:0px;
+}
 .logo
 {
     width: 100px;
     height: 100px;
-    position: absolute;
-    bottom: 11%;
+    position: relative;
+    margin-top: 10px;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
