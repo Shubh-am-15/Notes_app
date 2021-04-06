@@ -1,4 +1,5 @@
 var w=window.innerWidth;
+//sliding feature for forms
 if (w<400)
 {
     var form1=document.getElementById("form1");

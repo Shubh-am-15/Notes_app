@@ -24,10 +24,11 @@ firebase.auth().onAuthStateChanged(function (user) {
         console.log("no user");
     }
 });
-//displaying clock
+
 var finaltime, finaldate;
 var timearr, datearr;
 var flag;
+//responsivness
 var w = window.innerWidth;
 var h = window.innerHeight;
 if(w<500)
@@ -39,6 +40,7 @@ if(w<500)
  logo.style.top="5%";
  logo.style.right="-9%";
 }
+//displaying clock
 setInterval(displayclock, 700);
 function displayclock() {
     var time = new Date();
@@ -89,7 +91,7 @@ function addingnote() {
         notesarr.push(text.value);
         localStorage.setItem("notes", JSON.stringify(notesarr));
         text.value = "";
-        console.log(notesarr);
+        //console.log(notesarr);
 
         if (title == null) {
             titlearr = [];
@@ -100,7 +102,7 @@ function addingnote() {
         titlearr.push(heading.value);
         localStorage.setItem("title", JSON.stringify(titlearr));
         heading.value = "";
-        console.log(titlearr);
+        //console.log(titlearr);
 
         if (time == null) {
             timearr = [];
@@ -118,8 +120,8 @@ function addingnote() {
         datearr.push(finaldate);
         localStorage.setItem("time", JSON.stringify(timearr));
         localStorage.setItem("date", JSON.stringify(datearr));
-        console.log(timearr);
-        console.log(datearr);
+        //console.log(timearr);
+        //console.log(datearr);
         if (user == null) {
             userarr = [];
         }
@@ -128,7 +130,7 @@ function addingnote() {
         }
         userarr.push(email);
         localStorage.setItem("user", JSON.stringify(userarr));
-        console.log(userarr);
+        //console.log(userarr);
         shownote();
     }
 }
@@ -187,7 +189,6 @@ function shownote() {
 }
 //deleting note
 function deletenote(index) {
-    console.log("I am deleting note", index);
     let notes = localStorage.getItem("notes");
     let title = localStorage.getItem("title");
     let time = localStorage.getItem("time");
@@ -242,7 +243,6 @@ function editnote(index) {
     repbtn.style.visibility = "visible";
     var addbtn = document.getElementById("Addbtn");
     addbtn.style.visibility = "hidden";
-    console.log("i am editing note ", index);
     let notes = localStorage.getItem("notes");
     let title = localStorage.getItem("title");
     let time = localStorage.getItem("time");
@@ -265,9 +265,9 @@ function replacingnote() {
     deletenote(flag);
 
 }
+//changing themes
 function changingthemes() {
     var theme = document.getElementById("theme").value;
-    console.log(theme);
     if (theme == 1) {
         document.body.style.backgroundImage = "url('image5.jpg')";
         var head =document.getElementById("head");
