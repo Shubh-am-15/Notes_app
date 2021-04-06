@@ -80,7 +80,7 @@ function login()
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var uid = user.uid;
-      location.href="Index2.html";
+      location.href="index2.html";
     } else {
         console.log("no user found");
 
