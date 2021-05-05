@@ -56,7 +56,7 @@ signupform.addEventListener("submit", (e) => {
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
-            alert("ERROR: ", errorMessage, errorCode);
+            alert(`error message: ${errorMessage}`);
         });
     password.value = "";
     email.value = "";
@@ -75,7 +75,7 @@ function login()
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log("error");
-            alert(`error message ${errorMessage}`);
+            alert(`error message: ${errorMessage}`);
         })
 }
 firebase.auth().onAuthStateChanged((user) => {
